@@ -39,24 +39,31 @@
         </div>
         <div>
             @if (ViewBag.dictionary != null)
-             {
-                 foreach (var item in ViewBag.dictionary)
-                 {
-                     <p>@item</p>
-                  }
-             }
+        {
+            foreach (var item in ViewBag.dictionary)
+            {
+                <p>@item</p>
+        }
+    }
         </div>
+
+        @if (ViewBag.Delete != null)
+    {
+        <div>
+            @ViewBag.Delete
+        </div>
+}
 
         <div>
             @if (ViewBag.Search != null)
+        {
+            using (Html.BeginForm("SearchStack", "Stack", FormMethod.Post))
             {
-                 using (Html.BeginForm("SearchStack", "Stack", FormMethod.Post))
-                 {
-                    <label for="inputEmail">Search</label>
-                    @Html.TextBox("Search here")
-                    <button type="submit">Submit</button>
-                 }
-             }
+                <label for="inputEmail">Search</label>
+                @Html.TextBox("Search here")
+                <button type="submit">Submit</button>
+        }
+    }
 
         </div>
 

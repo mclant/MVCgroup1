@@ -47,6 +47,14 @@
         </div>
 }
 
+
+        @if (ViewBag.Empty != null)
+        {
+            <div>
+                @ViewBag.Empty
+            </div>
+        }
+
         <div>
             @if (ViewBag.Search != null)
              {

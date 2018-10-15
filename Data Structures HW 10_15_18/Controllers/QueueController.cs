@@ -28,7 +28,7 @@ namespace Data_Structures_HW_10_15_18.Controllers
         {
             if (myqueue.Count == 0)
             {
-                ViewBag.Queue = "Queue is empty. Please add Items to the Queue.";
+                ViewBag.Empty = "Queue is empty. Please add Items to the Queue.";
             }
             else
             {
