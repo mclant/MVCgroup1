@@ -10,6 +10,8 @@ namespace Data_Structures_HW_10_15_18.Controllers
 {
     public class StackController : Controller
     {
+        //rob is the man
+
         // GET: Stack
         public static Stack<string> mystack = new Stack<string>();
 
