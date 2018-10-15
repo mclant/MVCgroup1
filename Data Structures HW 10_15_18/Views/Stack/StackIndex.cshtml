@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!-- Im never going to understand how to use git-->
+
+<link rel="stylesheet" type="text/css" href="~/Content/StyleSheetCustom.css">
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
+        <h3 class="w3-bar-item">Menu</h3>
+        <a href="@Url.Action("addone", "Stack")" class="w3-bar-item w3-button">1. Add one time to Stack</a>
+        <a href="@Url.Action("hugelist", "Stack")" class="w3-bar-item w3-button">2. Add Huge List of Items to Stack</a>
+        <a href="@Url.Action("displaystack","Stack")" class="w3-bar-item w3-button">3. Display Stack</a>
+        <a href="@Url.Action("popstack","Stack")" class="w3-bar-item w3-button">4. Delete from Stack</a>
+        <a href="@Url.Action("clearstack","Stack")" class="w3-bar-item w3-button">5. Clear Stack</a>
+        <a href="@Url.Action("searchstack","Stack")" class="w3-bar-item w3-button">6. Search Stack</a>
+        <a href="@Url.Action("Index","Home")" class="w3-bar-item w3-button">7. Return to Main Menu</a>
+    </div>
+
+    <!-- ViewBag.Output total concatenation displayed -->
+    @Html.Raw((String)ViewBag.Output)
+
+    
+
+    <!-- Page Content -->
+    <div style="margin-left:25%">
+
+        <div class="w3-container w3-teal">
+            <h1>Stack Page</h1>
+        </div>
+
+        <img src="~/Graphics/AI6A9642-7.jpg" alt="Car" style="width:100%">
+
+        <div class="w3-container">
+            <h2>The Stack Page</h2>
+            <p>A Stack is a data storage type where we can add and take away values.</p>
+            <p>The Stack is LIFO, the last element we push on is the first we would take off.</p>
+        </div>
+        @if (ViewBag.Stack != null)
+         {
+        <div>
+               @foreach (var item in ViewBag.Stack)
+                {
+                 <p>
+                     @item
+                 </p>
+                }
+
+
+        </div>
+         }
+        <div>
+            @if (ViewBag.Search != null)
+             {
+                using (Html.BeginForm("SearchStack", "Stack", FormMethod.Post))
+                {
+                   <label for="inputEmail">Search</label>
+                   @Html.TextBox("Search here")
+                   <button type="submit">Submit</button>
+                }
+             }
+
+        </div>
+        <div>
+            @if (ViewBag.Searched != null)
+            {
+                <p>
+                    @ViewBag.Searched
+                </p>
+            }
+        </div>
+        <div>
+            @if (ViewBag.Delete != null)
+            {
+                @ViewBag.Delete
+            }
+        </div>
+
+    </div>
+
+</body>
+</html>
+

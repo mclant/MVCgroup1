@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/StyleSheetCustom.css">
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%">
+        <h3 class="w3-bar-item">Menu</h3>
+        <a href="@Url.Action("addone","Queue")" class="w3-bar-item w3-button">1. Add One Time to Queue</a>
+        <a href="@Url.Action("hugelist","Queue")" class="w3-bar-item w3-button">2. Add Huge List of Items to Queue</a>
+        <a href="@Url.Action("displayqueue","Queue")" class="w3-bar-item w3-button">3. Display Queue</a>
+        <a href="@Url.Action("deletequeue","Queue")" class="w3-bar-item w3-button">4. Delete from Queue</a>
+        <a href="@Url.Action("clearqueue","Queue")" class="w3-bar-item w3-button">5. Clear Queue</a>
+        <a href="@Url.Action("searchqueue","Queue")" class="w3-bar-item w3-button">6. Search Queue</a>
+        <a href="@Url.Action("Index","Home")" class="w3-bar-item w3-button">7. Return to Main Menu</a>
+    </div>
+
+    <!-- Page Content -->
+    <div style="margin-left:25%">
+
+        <div class="w3-container w3-teal">
+            <h1>Queue Page</h1>
+        </div>
+
+        <img src="~/Graphics/AI6A9643-8.jpg" alt="Car" style="width:100%">
+
+        <div class="w3-container">
+            <h2>Sidebar Navigation Example</h2>
+            <p>The sidebar with is set with "style="width:25%".</p>
+            <p>The left margin of the page content is set to the same value.</p>
+        </div>
+        @if (ViewBag.Queue != null)
+    {
+        <div>
+            @foreach (var item in ViewBag.Queue)
+        {
+            <p>@item</p>
+    }
+        </div>
+}
+
+        <div>
+            @if (ViewBag.Search != null)
+             {
+                 using (Html.BeginForm("SearchQueue", "Queue", FormMethod.Post))
+                  {
+                    <label for="inputEmail">Search</label>
+                    @Html.TextBox("Search here")
+                    <button type="submit">Submit</button>
+                  }
+             }
+
+        </div>
+    </div>
+
+</body>
+</html>
+
