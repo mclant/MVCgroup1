@@ -16,6 +16,7 @@ namespace Data_Structures_HW_10_15_18.Controllers
             return View();
         }
 
+        //these are all methods used when called on from the view, to do everything to our dictionary
         public ActionResult addone()
         {
             mydictionary.Add((mydictionary.Count + 1),"item number #" + (mydictionary.Count + 1));

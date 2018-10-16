@@ -16,6 +16,7 @@ namespace Data_Structures_HW_10_15_18.Controllers
             return View();
         }
 
+        //these are all methods used when called on from the view, to do everything to our queue
         public ActionResult addone()
         {
             myqueue.Enqueue("item number #" + (myqueue.Count + 1));

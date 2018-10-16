@@ -19,6 +19,7 @@ namespace Data_Structures_HW_10_15_18.Controllers
         public bool searching = false;
         public string searchword = null;
 
+        //these are all methods used when called on from the view, to do everything to our stack
         public ActionResult StackIndex()
         {
             
